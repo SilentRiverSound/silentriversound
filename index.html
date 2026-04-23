@@ -203,6 +203,36 @@
   font-size: 0.98rem;
 }
 
+    .contact-text {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.contact-intro {
+  margin: 0 0 22px;
+  color: var(--text);
+  font-size: 1.05rem;
+  max width: 520px;
+}
+
+.contact-detail {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.contact-detail a {
+  color: var(--text);
+  border-bottom: 1px solid rgba(241, 236, 230, 0.2);
+  padding-bottom: 2px;
+}
+
+.contact-detail a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
     .contact-link {
       display: inline-block;
       margin-top: 8px;
@@ -367,14 +397,25 @@
       </section>
 
       <section class="section" id="contact">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-text">
-          <p>A good idea deserves the right sound. Get in touch to discuss your project.</p>
-          <a class="contact-link" href="mailto:info@silentriversound.studio">
-            info@silentriversound.studio
-          </a>
-        </div>
-      </section>
+  <h2 class="section-title">Contact</h2>
+
+  <div class="contact-text">
+    <p class="contact-intro">
+      A good idea deserves the right sound.<br>
+      Get in touch to discuss your project.
+    </p>
+
+    <p class="contact-detail">
+      Phone: +31 6 55 95 78 12
+    </p>
+
+    <p class="contact-detail">
+      <a href="mailto:info@silentriversound.studio">
+        info@silentriversound.studio
+      </a>
+    </p>
+  </div>
+</section>
     </main>
 
     <footer class="footer">
