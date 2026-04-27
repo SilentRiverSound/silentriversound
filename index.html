@@ -14,6 +14,7 @@
       --line: #1c1c1c;
       --accent: #d5b193;
       --accent-soft: #b9987f;
+      --button: #D69188;
       --max-width: 1280px;
       --content-width: 980px;
     }
@@ -81,32 +82,12 @@
     }
 
     .hero {
-      min-height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 10px 24px 20px;
       text-align: center;
     }
-
-   .hero-button {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 12px 22px;
-  border: 1px solid #D69188;
-  border-radius: 999px;
-  color: #D69188;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-}
-
-.hero-button:hover {
-  background: #D69188;
-  color: #050505;
-}
-}
 
     .hero-inner {
       margin-top: 4px;
@@ -124,11 +105,35 @@
 
     .hero p {
       margin: 0 auto;
-      text-align: center;
       max-width: 620px;
       color: var(--muted);
       font-size: 1.05rem;
       line-height: 1.7;
+    }
+
+    .hero-button,
+    .work-cta-button,
+    .project-link {
+      display: inline-block;
+      border: 1px solid var(--button);
+      border-radius: 999px;
+      color: var(--button);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .hero-button {
+      margin-top: 14px;
+      padding: 12px 22px;
+      font-size: 0.95rem;
+    }
+
+    .hero-button:hover,
+    .work-cta-button:hover,
+    .project-link:hover {
+      background: var(--button);
+      color: #050505;
     }
 
     .content {
@@ -143,7 +148,7 @@
     }
 
     .section-title {
-      margin: 0 0 28px;
+      margin: 0 0 18px;
       font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.16em;
@@ -151,97 +156,149 @@
       color: var(--accent);
     }
 
-    .work-item {
-      margin-bottom: 58px;
+    .section-intro {
+      max-width: 680px;
+      margin: 0 0 46px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
     }
 
-    .work-title {
-      margin: 0 0 18px;
-      font-size: 1.15rem;
-      line-height: 1.4;
+    .work-category {
+      margin-bottom: 64px;
+    }
+
+    .category-title {
+      margin: 0 0 22px;
+      font-size: 1.25rem;
       font-weight: 500;
       color: var(--text);
     }
 
-    .video-shell {
-      overflow: hidden;
-      border-radius: 22px;
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .work-grid.featured {
+      gap: 26px;
+    }
+
+    .work-card {
+      min-height: 100%;
+      padding: 26px;
       border: 1px solid var(--line);
-      background: var(--panel);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
     }
 
-    .video {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
+    .work-card.featured-card {
+      padding: 30px;
     }
 
-    .video iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .project-title {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .project-type {
+      margin: 0 0 18px;
+      color: var(--accent-soft);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .project-description {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .project-role {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .project-role strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .project-link {
+      padding: 9px 15px;
+      font-size: 0.78rem;
+    }
+
+    .work-cta {
+      margin-top: 20px;
+      padding: 34px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .work-cta p {
+      margin: 0 0 18px;
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .work-cta-button {
+      padding: 11px 20px;
+      font-size: 0.86rem;
     }
 
     .about-text,
     .contact-text {
       max-width: 680px;
       color: var(--muted);
-      font-size: 1,02rem;
+      font-size: 1.02rem;
       line-height: 1.75;
     }
 
     .about-text p {
-  margin: 0 0 18px;
-}
-
-.about-summary {
-  margin-top: 28px;
-  color: var(--text);
-  font-size: 0.98rem;
-}
-
-    .contact-text {
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.75;
-}
-
-.contact-intro {
-  margin: 0 0 22px;
-  color: var(--text);
-  font-size: 1.05rem;
-  max width: 520px;
-}
-
-.contact-detail {
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-.contact-detail a {
-  color: var(--text);
-  border-bottom: 1px solid rgba(241, 236, 230, 0.2);
-  padding-bottom: 2px;
-}
-
-.contact-detail a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-    .contact-link {
-      display: inline-block;
-      margin-top: 8px;
-      color: var(--text);
-      font-size: 1.05rem;
+      margin: 0 0 18px;
     }
 
-    .contact-link:hover {
+    .about-summary {
+      margin-top: 28px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .contact-text {
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      margin: 0 0 22px;
+      color: var(--text);
+      font-size: 1.05rem;
+      max-width: 520px;
+    }
+
+    .contact-detail {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .contact-detail a {
+      color: var(--text);
+      border-bottom: 1px solid rgba(241, 236, 230, 0.2);
+      padding-bottom: 2px;
+    }
+
+    .contact-detail a:hover {
       color: var(--accent);
+      border-color: var(--accent);
     }
 
     .footer {
@@ -254,8 +311,7 @@
 
     @media (max-width: 900px) {
       .nav-row {
-        
-        padding: 22px 22px;
+        padding: 22px;
       }
 
       .content,
@@ -271,12 +327,15 @@
       .hero {
         min-height: 460px;
         padding-top: 70px;
-        margin: 0;
       }
 
       .hero-logo {
         width: min(240px, 78vw);
-        margin-bottom: 0 auto 10px;
+        margin: 0 auto 10px;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -301,13 +360,19 @@
 
       .hero p,
       .about-text,
-      .contact-text {
+      .contact-text,
+      .section-intro {
         font-size: 0.96rem;
         max-width: 320px;
       }
 
-      .video-shell {
-        border-radius: 16px;
+      .work-card {
+        padding: 22px;
+        border-radius: 18px;
+      }
+
+      .work-cta {
+        padding: 30px 0 0;
       }
     }
   </style>
@@ -330,92 +395,208 @@
       <div class="hero-inner">
         <img src="Logo_6.png" alt="Silent River Sound logo" class="hero-logo" />
         <p>
-        Sound shaped around what matters. <br>
-        Audio production, composition, and 
-        recording — tailored to each project.
+          Sound shaped around what matters.<br>
+          Audio production, composition, and recording — tailored to each project.
         </p>
         <a href="#contact" class="hero-button">Contact</a>
       </div>
     </section>
 
     <main class="content">
-      <section class="section" id="work">
-        <h2 class="section-title">Work</h2>
 
-        <div class="work-item">
-          <p class="work-title">Motivational Ad — Sound Design & Music</p>
-          <div class="video-shell">
-            <div class="video">
-              <iframe
-                src="https://www.youtube.com/embed/7SIFfTKSosQ"
-                allowfullscreen>
-              </iframe>
-            </div>
+      <section class="section" id="work">
+        <h2 class="section-title">Selected Work</h2>
+
+        <p class="section-intro">
+          A selection of projects across music production, narrative audio, sound design, and audio for visual content.
+        </p>
+
+        <div class="work-category">
+          <h3 class="category-title">Featured Work</h3>
+
+          <div class="work-grid featured">
+            <article class="work-card featured-card">
+              <h4 class="project-title">Narrative Interview</h4>
+              <p class="project-type">Narrative audio production / voice-driven content</p>
+              <p class="project-description">
+                Audio production for a long-form storytelling piece, focused on voice clarity, pacing, and emotional balance.
+                Original music was composed and integrated to support the narrative without competing with speech.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Audio producer, recording engineer, editor, mixer, music composer
+              </p>
+              <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-link" target="_blank" rel="noopener">
+                View project
+              </a>
+            </article>
+
+            <article class="work-card featured-card">
+              <h4 class="project-title">EP Production — Independent Artist</h4>
+              <p class="project-type">Music production / recording / mixing</p>
+              <p class="project-description">
+                Production and mixing of a four-track EP, developed through mobile recording sessions across non-studio environments.
+                The work included arrangement support, recording, editing, and mix cohesion across the full release.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Producer, recording engineer, editor, mixing engineer
+              </p>
+              <a href="#contact" class="project-link">
+                Private preview
+              </a>
+            </article>
           </div>
         </div>
 
-        <div class="work-item">
-          <p class="work-title">Tea Story — Audio Design & Mix</p>
-          <div class="video-shell">
-            <div class="video">
-              <iframe
-                src="https://www.youtube.com/embed/u95GMDw4-pw"
-                allowfullscreen>
-              </iframe>
-            </div>
+        <div class="work-category">
+          <h3 class="category-title">Narrative & Audio for Picture</h3>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <h4 class="project-title">Narrative Audio Design — Motivational Sequence</h4>
+              <p class="project-type">Voice-driven audiovisual piece</p>
+              <p class="project-description">
+                Audio design for a conceptual advertising-style sequence built around voice-over, music, and sound effects.
+                The audio was structured to support narrative progression, transitions, pacing, and intelligibility.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Audio producer, sound designer, editor, video editor
+              </p>
+              <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-link" target="_blank" rel="noopener">
+                Watch
+              </a>
+            </article>
+
+            <article class="work-card">
+              <h4 class="project-title">Audio Design for Visual Sequence</h4>
+              <p class="project-type">Music and sound design for visual content</p>
+              <p class="project-description">
+                Music and sound effects designed to follow visual transitions, shifts in energy, and key moments across the sequence.
+                The project focused on timing, atmosphere, and integration between sound and image.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Composer, sound designer, editor
+              </p>
+              <a href="#contact" class="project-link">
+                Private preview
+              </a>
+            </article>
           </div>
+        </div>
+
+        <div class="work-category">
+          <h3 class="category-title">Music & Production</h3>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <h4 class="project-title">Electronic Record Label Releases</h4>
+              <p class="project-type">Mixing & mastering for DJ-focused platforms</p>
+              <p class="project-description">
+                Mixing and mastering work for over 50 electronic music releases, prepared for club playback, digital distribution,
+                and consistent translation across listening environments.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Mixing and mastering engineer
+              </p>
+              <a href="#contact" class="project-link">
+                Selected releases
+              </a>
+            </article>
+
+            <article class="work-card">
+              <h4 class="project-title">Independent Music & Video Production</h4>
+              <p class="project-type">Self-directed music and audiovisual production</p>
+              <p class="project-description">
+                A self-directed music and video project developed from composition to release. The work included songwriting,
+                arrangement, performance, production direction, collaboration with musicians, and audiovisual editing.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Producer, composer, arranger, performer, video producer/director
+              </p>
+              <a href="#contact" class="project-link">
+                Watch video
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <div class="work-category">
+          <h3 class="category-title">Long-Form & Structured Audio Projects</h3>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <h4 class="project-title">Educational Video Course — Pastry</h4>
+              <p class="project-type">Audio production & music identity</p>
+              <p class="project-description">
+                Audio production and music identity for a structured educational video course with 40+ lessons across six thematic chapters.
+                The work focuses on dialogue clarity, original music themes, pacing, and long-form consistency.
+              </p>
+              <p class="project-role">
+                <strong>Role:</strong> Audio producer, music composer, editor
+              </p>
+              <a href="#contact" class="project-link">
+                View sample lesson
+              </a>
+            </article>
+          </div>
+        </div>
+
+        <div class="work-cta">
+          <p>Interested in shaping the sound of your project?</p>
+          <a href="#contact" class="work-cta-button">Get in touch</a>
         </div>
       </section>
 
       <section class="section" id="about">
         <h2 class="section-title">About</h2>
+
         <div class="about-text">
-  <p>
-    I work with artists, brands, and creators to develop sound for music, film, and narrative projects.
-    Each project requires a different approach. In some cases the sound stays transparent and supports
-    the content. In others, it becomes part of the identity.
-  </p>
+          <p>
+            I work with artists, brands, and creators to develop sound for music, film, and narrative projects.
+            Each project requires a different approach. In some cases the sound stays transparent and supports
+            the content. In others, it becomes part of the identity.
+          </p>
 
-  <p>
-    My role is to understand that balance early and shape the audio accordingly. This can involve music
-    production, dialogue work, or sound design, but also decisions around how and where sound is recorded.
-    When needed, I work with a portable setup to capture material in spaces that add character instead of
-    relying only on a controlled studio environment.
-  </p>
+          <p>
+            My role is to understand that balance early and shape the audio accordingly. This can involve music
+            production, dialogue work, or sound design, but also decisions around how and where sound is recorded.
+            When needed, I work with a portable setup to capture material in spaces that add character instead of
+            relying only on a controlled studio environment.
+          </p>
 
-  <p>
-    Depending on the project, I collaborate with musicians and creatives to expand the production beyond
-    a single workflow. Background in audio production and audiovisual systems, with experience across
-    music, post-production, and synchronized media.
-  </p>
+          <p>
+            Depending on the project, I collaborate with musicians and creatives to expand the production beyond
+            a single workflow. Background in audio production and audiovisual systems, with experience across
+            music, post-production, and synchronized media.
+          </p>
 
-  <p class="about-summary">
-    Work spans narrative pieces, interviews, visual content, and concept-driven audio for artistic and
-    brand contexts.
-  </p>
-</div>
+          <p class="about-summary">
+            Work spans narrative pieces, interviews, visual content, and concept-driven audio for artistic and
+            brand contexts.
+          </p>
+        </div>
       </section>
 
       <section class="section" id="contact">
-  <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Contact</h2>
 
-  <div class="contact-text">
-    <p class="contact-intro">
-      A good idea deserves the right sound.<br>
-      Get in touch to discuss your project.
-    </p>
+        <div class="contact-text">
+          <p class="contact-intro">
+            A good idea deserves the right sound.<br>
+            Get in touch to discuss your project.
+          </p>
 
-    <p class="contact-detail">
-      Phone: +31 6 55 95 78 12
-    </p>
+          <p class="contact-detail">
+            Phone: +31 6 55 95 78 12
+          </p>
 
-    <p class="contact-detail">
-      <a href="mailto:info@silentriversound.studio">
-        info@silentriversound.studio
-      </a>
-    </p>
-  </div>
-</section>
+          <p class="contact-detail">
+            <a href="mailto:info@silentriversound.studio">
+              info@silentriversound.studio
+            </a>
+          </p>
+        </div>
+      </section>
+
     </main>
 
     <footer class="footer">
