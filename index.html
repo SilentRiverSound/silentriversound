@@ -16,7 +16,7 @@
       --accent-soft: #b9987f;
       --button: #D69188;
       --max-width: 1280px;
-      --content-width: 980px;
+      --content-width: 1080px;
     }
 
     * {
@@ -112,7 +112,6 @@
     }
 
     .hero-button,
-    .work-cta-button,
     .project-link {
       display: inline-block;
       border: 1px solid var(--button);
@@ -130,7 +129,6 @@
     }
 
     .hero-button:hover,
-    .work-cta-button:hover,
     .project-link:hover {
       background: var(--button);
       color: #050505;
@@ -158,54 +156,43 @@
 
     .section-intro {
       max-width: 680px;
-      margin: 0 0 46px;
+      margin: 0 0 52px;
       color: var(--muted);
       font-size: 1.02rem;
       line-height: 1.7;
     }
 
     .work-category {
-      margin-bottom: 64px;
+      margin-bottom: 72px;
     }
 
     .category-title {
-      margin: 0 0 22px;
-      font-size: 1.25rem;
+      margin: 0 0 24px;
+      font-size: 1.3rem;
       font-weight: 500;
       color: var(--text);
     }
 
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .work-grid.featured {
-      gap: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
     .work-card {
-      min-height: 100%;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 22px;
       background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
-    }
-
-    .work-card-inner {
-      padding: 26px;
-    }
-
-    .featured-card .work-card-inner {
-      padding: 30px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .project-image-link {
       display: block;
-      border-bottom: 1px solid var(--line);
       overflow: hidden;
-      cursor: pointer;
+      border-bottom: 1px solid var(--line);
+      background: #111;
     }
 
     .project-image {
@@ -213,56 +200,34 @@
       aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
-      opacity: 0.88;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      opacity: 0.9;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
-    .project-image-link:hover .project-image {
-      opacity: 1;
-      transform: scale(1.02);
-    }
-
-    .project-image-link.placeholder {
-      cursor: default;
-    }
-
-    .project-image-link.placeholder:hover .project-image {
-      opacity: 0.88;
-      transform: none;
+    .work-card-inner {
+      padding: 24px;
     }
 
     .project-title {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      line-height: 1.35;
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.4;
       font-weight: 500;
       color: var(--text);
     }
 
     .project-type {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--accent-soft);
       font-size: 0.9rem;
       line-height: 1.5;
     }
 
     .project-description {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    .project-role {
       margin: 0 0 22px;
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    .project-role strong {
-      color: var(--text);
-      font-weight: 500;
+      font-size: 0.96rem;
+      line-height: 1.65;
     }
 
     .project-link {
@@ -279,23 +244,25 @@
       color: var(--button);
     }
 
-    .work-cta {
-      margin-top: 20px;
-      padding: 34px;
-      border-top: 1px solid var(--line);
-      text-align: center;
+    .project-image-link.placeholder {
+      cursor: default;
     }
 
-    .work-cta p {
-      margin: 0 0 18px;
-      color: var(--text);
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
+    @media (hover: hover) and (pointer: fine) {
+      .work-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 22px 46px rgba(0, 0, 0, 0.34);
+        border-color: rgba(213, 177, 147, 0.28);
+      }
 
-    .work-cta-button {
-      padding: 11px 20px;
-      font-size: 0.86rem;
+      .work-card:hover .project-image {
+        transform: scale(1.035);
+        opacity: 1;
+      }
+
+      .work-card:hover .project-image-link.placeholder .project-image {
+        transform: scale(1.035);
+      }
     }
 
     .about-text,
@@ -378,7 +345,7 @@
       }
 
       .work-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -409,17 +376,16 @@
         max-width: 320px;
       }
 
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
       .work-card {
         border-radius: 18px;
       }
 
-      .work-card-inner,
-      .featured-card .work-card-inner {
+      .work-card-inner {
         padding: 22px;
-      }
-
-      .work-cta {
-        padding: 30px 0 0;
       }
     }
   </style>
@@ -455,59 +421,71 @@
         <h2 class="section-title">Selected Work</h2>
 
         <p class="section-intro">
-          A selection of projects across music production, narrative audio, sound design, and audio for visual content.
+          A selection of sound and music work across visual media, narrative projects, and music production.
         </p>
 
         <div class="work-category">
-          <h3 class="category-title">Featured Work</h3>
+          <h3 class="category-title">Audio for Visual</h3>
 
-          <div class="work-grid featured">
+          <div class="work-grid">
 
-            <article class="work-card featured-card">
-              <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-image-link" target="_blank" rel="noopener">
-                <img src="images/narrative-interview.jpg" alt="Narrative Interview project preview" class="project-image" />
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/tea-memory-origin.jpg" alt="Preview image for Tea, Memory, and Origin" class="project-image" />
               </a>
-
               <div class="work-card-inner">
-                <h4 class="project-title">Narrative Interview</h4>
-                <p class="project-type">Narrative audio production / voice-driven content</p>
-
-                <p class="project-description">
-                  Audio production for a long-form storytelling piece, focused on voice clarity, pacing, and emotional balance.
-                  Original music was composed and integrated to support the narrative without competing with speech.
-                </p>
-
-                <p class="project-role">
-                  <strong>Role:</strong> Audio producer, recording engineer, editor, mixer, music composer
-                </p>
-
-                <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-link" target="_blank" rel="noopener">
-                  View project
-                </a>
+                <h4 class="project-title">Tea, Memory, and Origin — A Story Between Ireland and Thailand</h4>
+                <p class="project-type">Narrative audio / interview</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
               </div>
             </article>
 
-            <article class="work-card featured-card">
+            <article class="work-card">
               <a href="#" class="project-image-link placeholder" onclick="return false;">
-                <img src="images/ep-production.jpg" alt="EP Production project preview" class="project-image" />
+                <img src="images/concept-advertisement.jpg" alt="Preview image for Concept Advertisement — Motivational Sequence" class="project-image" />
               </a>
-
               <div class="work-card-inner">
-                <h4 class="project-title">EP Production — Independent Artist</h4>
-                <p class="project-type">Music production / recording / mixing</p>
+                <h4 class="project-title">Concept Advertisement — Motivational Sequence</h4>
+                <p class="project-type">Concept advertisement / sound design</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
+              </div>
+            </article>
 
-                <p class="project-description">
-                  Production and mixing of a four-track EP, developed through mobile recording sessions across non-studio environments.
-                  The work included arrangement support, recording, editing, and mix cohesion across the full release.
-                </p>
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/a-damn-cake-maker-life-video.jpg" alt="Preview image for A Damn Cake Maker Life official music video" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — A Damn Cake Maker Life (Official Music Video)</h4>
+                <p class="project-type">Music video / audiovisual production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
+              </div>
+            </article>
 
-                <p class="project-role">
-                  <strong>Role:</strong> Producer, recording engineer, editor, mixing engineer
-                </p>
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/audio-design-visual-sequence.jpg" alt="Preview image for Audio Design for Visual Sequence" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Audio Design for Visual Sequence — Original Music & Minimal SFX</h4>
+                <p class="project-type">Audio design / visual sequence</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
+              </div>
+            </article>
 
-                <a href="#" class="project-link placeholder" onclick="return false;">
-                  Private preview
-                </a>
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/three-babies-cover-cheyenne.jpg" alt="Preview image for Three Babies cover by Cheyenne" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Sinéad O'Connor — Three Babies (Cover by Cheyenne)</h4>
+                <p class="project-type">Music video / cover performance</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
               </div>
             </article>
 
@@ -515,143 +493,59 @@
         </div>
 
         <div class="work-category">
-          <h3 class="category-title">Narrative & Audio for Picture</h3>
-
-          <div class="work-grid">
-
-            <article class="work-card">
-              <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-image-link" target="_blank" rel="noopener">
-                <img src="images/motivational-sequence.jpg" alt="Motivational Sequence project preview" class="project-image" />
-              </a>
-
-              <div class="work-card-inner">
-                <h4 class="project-title">Narrative Audio Design — Motivational Sequence</h4>
-                <p class="project-type">Voice-driven audiovisual piece</p>
-
-                <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-link" target="_blank" rel="noopener">
-                  Watch
-                </a>
-              </div>
-            </article>
-
-            <article class="work-card">
-              <a href="#" class="project-image-link placeholder" onclick="return false;">
-                <img src="images/visual-sequence.jpg" alt="Audio Design for Visual Sequence project preview" class="project-image" />
-              </a>
-
-              <div class="work-card-inner">
-                <h4 class="project-title">Audio Design for Visual Sequence</h4>
-                <p class="project-type">Music and sound design for visual content</p>
-
-                <p class="project-description">
-                  Music and sound effects designed to follow visual transitions, shifts in energy, and key moments across the sequence.
-                  The project focused on timing, atmosphere, and integration between sound and image.
-                </p>
-
-                <p class="project-role">
-                  <strong>Role:</strong> Composer, sound designer, editor
-                </p>
-
-                <a href="#" class="project-link placeholder" onclick="return false;">
-                  Private preview
-                </a>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <div class="work-category">
-          <h3 class="category-title">Music & Production</h3>
+          <h3 class="category-title">Music Production</h3>
 
           <div class="work-grid">
 
             <article class="work-card">
               <a href="#" class="project-image-link placeholder" onclick="return false;">
-                <img src="images/electronic-releases.jpg" alt="Electronic Record Label Releases project preview" class="project-image" />
+                <img src="images/anatomia-di-un-viaggio.jpg" alt="Cover image for Anatomia di un viaggio EP" class="project-image" />
               </a>
-
               <div class="work-card-inner">
-                <h4 class="project-title">Electronic Record Label Releases</h4>
-                <p class="project-type">Mixing & mastering for DJ-focused platforms</p>
-
-                <p class="project-description">
-                  Mixing and mastering work for over 50 electronic music releases, prepared for club playback, digital distribution,
-                  and consistent translation across listening environments.
-                </p>
-
-                <p class="project-role">
-                  <strong>Role:</strong> Mixing and mastering engineer
-                </p>
-
-                <a href="#" class="project-link placeholder" onclick="return false;">
-                  Selected releases
-                </a>
+                <h4 class="project-title">Anatomia di un viaggio — EP</h4>
+                <p class="project-type">EP production / recording / mixing</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
               </div>
             </article>
 
             <article class="work-card">
               <a href="#" class="project-image-link placeholder" onclick="return false;">
-                <img src="images/independent-music-video.jpg" alt="Independent Music and Video Production project preview" class="project-image" />
+                <img src="images/just-another-story.jpg" alt="Cover image for Just Another Story" class="project-image" />
               </a>
-
               <div class="work-card-inner">
-                <h4 class="project-title">Independent Music & Video Production</h4>
-                <p class="project-type">Self-directed music and audiovisual production</p>
-
-                <p class="project-description">
-                  A self-directed music and video project developed from composition to release. The work included songwriting,
-                  arrangement, performance, production direction, collaboration with musicians, and audiovisual editing.
-                </p>
-
-                <p class="project-role">
-                  <strong>Role:</strong> Producer, composer, arranger, performer, video producer/director
-                </p>
-
-                <a href="#" class="project-link placeholder" onclick="return false;">
-                  Watch video
-                </a>
+                <h4 class="project-title">Rise of the Islands — Just Another Story</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
               </div>
             </article>
-
-          </div>
-        </div>
-
-        <div class="work-category">
-          <h3 class="category-title">Long-Form & Structured Audio Projects</h3>
-
-          <div class="work-grid">
 
             <article class="work-card">
               <a href="#" class="project-image-link placeholder" onclick="return false;">
-                <img src="images/educational-video-course.jpg" alt="Educational Video Course project preview" class="project-image" />
+                <img src="images/unbreakable-g.jpg" alt="Cover image for Unbreakable G" class="project-image" />
               </a>
-
               <div class="work-card-inner">
-                <h4 class="project-title">Educational Video Course — Pastry</h4>
-                <p class="project-type">Audio production & music identity</p>
+                <h4 class="project-title">Rise of the Islands — Unbreakable G</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
+              </div>
+            </article>
 
-                <p class="project-description">
-                  Audio production and music identity for a structured educational video course with 40+ lessons across six thematic chapters.
-                  The work focuses on dialogue clarity, original music themes, pacing, and long-form consistency.
-                </p>
-
-                <p class="project-role">
-                  <strong>Role:</strong> Audio producer, music composer, editor
-                </p>
-
-                <a href="#" class="project-link placeholder" onclick="return false;">
-                  View sample lesson
-                </a>
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/a-damn-cake-maker-life.jpg" alt="Cover image for A Damn Cake Maker Life" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — A Damn Cake Maker Life</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
               </div>
             </article>
 
           </div>
-        </div>
-
-        <div class="work-cta">
-          <p>Interested in shaping the sound of your project?</p>
-          <a href="#contact" class="work-cta-button">Get in touch</a>
         </div>
       </section>
 
