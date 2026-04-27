@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Silent River Sound</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
@@ -19,9 +19,13 @@
       --content-width: 1080px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -30,7 +34,10 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .site-frame {
       max-width: var(--max-width);
@@ -44,71 +51,104 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(5,5,5,0.92);
+      background: rgba(5, 5, 5, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
 
     .nav-row {
+      max-width: var(--max-width);
+      margin: 0 auto;
       padding: 28px 36px;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
 
     .nav-menu {
       display: flex;
       gap: 34px;
+      align-items: center;
     }
 
     .nav-menu a {
       font-size: 0.95rem;
       color: var(--muted);
+      transition: color 0.2s ease;
     }
 
-    .nav-menu a:hover { color: var(--text); }
+    .nav-menu a:hover {
+      color: var(--text);
+    }
 
     .hero {
       display: flex;
+      align-items: center;
       justify-content: center;
+      padding: 10px 24px 20px;
       text-align: center;
-      padding: 20px;
     }
 
-    .hero-inner { max-width: 900px; }
+    .hero-inner {
+      margin-top: 4px;
+      max-width: 900px;
+      width: 100%;
+    }
 
     .hero-logo {
       width: min(360px, 70vw);
+      height: auto;
       display: block;
-      margin: 0 auto 10px;
+      margin: 0 auto 8px;
+      opacity: 0.98;
     }
 
     .hero p {
+      margin: 0 auto;
+      max-width: 620px;
       color: var(--muted);
+      font-size: 1.05rem;
       line-height: 1.7;
+    }
+
+    .hero-button,
+    .project-link {
+      display: inline-block;
+      border: 1px solid var(--button);
+      border-radius: 999px;
+      color: var(--button);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
     }
 
     .hero-button {
       margin-top: 14px;
       padding: 12px 22px;
-      border: 1px solid var(--button);
-      border-radius: 999px;
-      color: var(--button);
-      text-transform: uppercase;
+      font-size: 0.95rem;
     }
 
-    .hero-button:hover {
+    .hero-button:hover,
+    .project-link:hover {
       background: var(--button);
-      color: #000;
+      color: #050505;
     }
 
     .content {
       max-width: var(--content-width);
       margin: 0 auto;
-      padding: 40px 36px;
+      padding: 20px 36px 120px;
+    }
+
+    .section {
+      padding-top: 82px;
+      scroll-margin-top: 90px;
     }
 
     .section-title {
+      margin: 0 0 18px;
       font-size: 0.95rem;
+      font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
@@ -116,13 +156,21 @@
 
     .section-intro {
       max-width: 680px;
+      margin: 0 0 52px;
       color: var(--muted);
-      margin-bottom: 40px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .work-category {
+      margin-bottom: 72px;
     }
 
     .category-title {
-      margin: 40px 0 20px;
-      font-size: 1.2rem;
+      margin: 0 0 24px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
     }
 
     .work-grid {
@@ -132,137 +180,428 @@
     }
 
     .work-card {
-      border: 1px solid var(--line);
-      border-radius: 20px;
       overflow: hidden;
-      background: #0d0d0d;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .work-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    .project-image-link {
+      display: block;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #111;
     }
 
     .project-image {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
+      display: block;
+      opacity: 0.9;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
-    .work-card-inner { padding: 20px; }
+    .work-card-inner {
+      padding: 24px;
+    }
 
-    .project-title { margin: 0 0 8px; }
+    .project-title {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.4;
+      font-weight: 500;
+      color: var(--text);
+    }
 
     .project-type {
+      margin: 0 0 16px;
       color: var(--accent-soft);
       font-size: 0.9rem;
-      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     .project-description {
+      margin: 0 0 22px;
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
+      font-size: 0.96rem;
+      line-height: 1.65;
     }
 
     .project-link {
-      padding: 8px 14px;
-      border: 1px solid var(--button);
-      border-radius: 999px;
-      font-size: 0.75rem;
+      padding: 9px 15px;
+      font-size: 0.78rem;
+    }
+
+    .project-link.placeholder {
+      cursor: default;
+    }
+
+    .project-link.placeholder:hover {
+      background: transparent;
       color: var(--button);
-      text-transform: uppercase;
     }
 
-    .project-link:hover {
-      background: var(--button);
-      color: #000;
+    .project-image-link.placeholder {
+      cursor: default;
     }
 
+    @media (hover: hover) and (pointer: fine) {
+      .work-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 22px 46px rgba(0, 0, 0, 0.34);
+        border-color: rgba(213, 177, 147, 0.28);
+      }
+
+      .work-card:hover .project-image {
+        transform: scale(1.035);
+        opacity: 1;
+      }
+    }
+
+    .about-text,
+    .contact-text {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .about-text p {
+      margin: 0 0 18px;
+    }
+
+    .about-summary {
+      margin-top: 28px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .contact-text {
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      margin: 0 0 22px;
+      color: var(--text);
+      font-size: 1.05rem;
+      max-width: 520px;
+    }
+
+    .contact-detail {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .contact-detail a {
+      color: var(--text);
+      border-bottom: 1px solid rgba(241, 236, 230, 0.2);
+      padding-bottom: 2px;
+    }
+
+    .contact-detail a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .footer {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 36px 36px;
+      color: #7d746c;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-row {
+        padding: 22px;
+      }
+
+      .content,
+      .footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .nav-menu {
+        gap: 20px;
+      }
+
+      .hero {
+        min-height: 460px;
+        padding-top: 70px;
+      }
+
+      .hero-logo {
+        width: min(240px, 78vw);
+        margin: 0 auto 10px;
+      }
+
+      .work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-row {
+        justify-content: center;
+      }
+
+      .nav-menu {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 380px;
+      }
+
+      .hero-logo {
+        width: min(280px, 82vw);
+      }
+
+      .hero p,
+      .about-text,
+      .contact-text,
+      .section-intro {
+        font-size: 0.96rem;
+        max-width: 320px;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-card {
+        border-radius: 18px;
+      }
+
+      .work-card-inner {
+        padding: 22px;
+      }
+    }
   </style>
 </head>
 
 <body>
-<div class="site-frame">
+  <div class="site-frame">
 
-<header class="site-header">
-  <div class="nav-row">
-    <nav class="nav-menu">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <header class="site-header">
+      <div class="nav-row">
+        <nav class="nav-menu">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <img src="Logo_6.png" alt="Silent River Sound logo" class="hero-logo" />
+        <p>
+          Sound shaped around what matters.<br>
+          Audio production, composition, and recording — tailored to each project.
+        </p>
+        <a href="#contact" class="hero-button">Contact</a>
+      </div>
+    </section>
+
+    <main class="content">
+
+      <section class="section" id="work">
+        <h2 class="section-title">Selected Work</h2>
+
+        <p class="section-intro">
+          A selection of sound and music work across visual media, narrative projects, and music production.
+        </p>
+
+        <div class="work-category">
+          <h3 class="category-title">Audio for Visual</h3>
+
+          <div class="work-grid">
+
+            <article class="work-card">
+              <a href="https://youtu.be/UT3SvvJDuJg" class="project-image-link" target="_blank" rel="noopener">
+                <img src="Tea_Story.png" alt="Preview image for Tea, Memory, and Origin" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Tea, Memory, and Origin — A Story Between Ireland and Thailand</h4>
+                <p class="project-type">Narrative audio / interview</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="https://youtu.be/UT3SvvJDuJg" class="project-link" target="_blank" rel="noopener">Watch</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="https://youtu.be/YxxMXexpz0c" class="project-image-link" target="_blank" rel="noopener">
+                <img src="Motivational Ad.png" alt="Preview image for Concept Advertisement — Motivational Sequence" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Concept Advertisement — Motivational Sequence</h4>
+                <p class="project-type">Concept advertisement / sound design</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="https://youtu.be/YxxMXexpz0c" class="project-link" target="_blank" rel="noopener">Watch</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="https://www.youtube.com/watch?v=3zS75i03Zkg" class="project-image-link" target="_blank" rel="noopener">
+                <img src="A_Damn_Cake_Maker_Life.png" alt="Preview image for A Damn Cake Maker Life official music video" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — A Damn Cake Maker Life (Official Music Video)</h4>
+                <p class="project-type">Music video / audiovisual production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="https://www.youtube.com/watch?v=3zS75i03Zkg" class="project-link" target="_blank" rel="noopener">Watch</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="https://youtu.be/pi_Ao3K1wzM" class="project-image-link" target="_blank" rel="noopener">
+                <img src="Photo_Stream.png" alt="Preview image for Audio Design for Visual Sequence" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Audio Design for Visual Sequence — Original Music & Minimal SFX</h4>
+                <p class="project-type">Audio design / visual sequence</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="https://youtu.be/pi_Ao3K1wzM" class="project-link" target="_blank" rel="noopener">Watch</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/three-babies-cover-cheyenne.jpg" alt="Preview image for Three Babies cover by Cheyenne" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Sinéad O'Connor — Three Babies (Cover by Cheyenne)</h4>
+                <p class="project-type">Music video / cover performance</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Watch</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="work-category">
+          <h3 class="category-title">Music Production</h3>
+
+          <div class="work-grid">
+
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="Anatomia_di_un_viaggio.png" alt="Cover image for Anatomia di un viaggio EP" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Anatomia di un viaggio — EP</h4>
+                <p class="project-type">EP production / recording / mixing</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="Just_Another_Story.png" alt="Cover image for Just Another Story" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — Just Another Story</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="Unbreakable_G.png" alt="Cover image for Unbreakable G" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — Unbreakable G</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="A_Damn_Cake_Maker_Life_cover.png" alt="Cover image for A Damn Cake Maker Life" class="project-image" />
+              </a>
+              <div class="work-card-inner">
+                <h4 class="project-title">Rise of the Islands — A Damn Cake Maker Life</h4>
+                <p class="project-type">Music production</p>
+                <p class="project-description">Short description to be added.</p>
+                <a href="#" class="project-link placeholder" onclick="return false;">Listen</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <h2 class="section-title">About</h2>
+
+        <div class="about-text">
+          <p>
+            I work with artists, brands, and creators to develop sound for music, film, and narrative projects.
+            Each project requires a different approach. In some cases the sound stays transparent and supports
+            the content. In others, it becomes part of the identity.
+          </p>
+
+          <p>
+            My role is to understand that balance early and shape the audio accordingly. This can involve music
+            production, dialogue work, or sound design, but also decisions around how and where sound is recorded.
+            When needed, I work with a portable setup to capture material in spaces that add character instead of
+            relying only on a controlled studio environment.
+          </p>
+
+          <p>
+            Depending on the project, I collaborate with musicians and creatives to expand the production beyond
+            a single workflow. Background in audio production and audiovisual systems, with experience across
+            music, post-production, and synchronized media.
+          </p>
+
+          <p class="about-summary">
+            Work spans narrative pieces, interviews, visual content, and concept-driven audio for artistic and
+            brand contexts.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-text">
+          <p class="contact-intro">
+            A good idea deserves the right sound.<br>
+            Get in touch to discuss your project.
+          </p>
+
+          <p class="contact-detail">
+            Phone: +31 6 55 95 78 12
+          </p>
+
+          <p class="contact-detail">
+            <a href="mailto:info@silentriversound.studio">
+              info@silentriversound.studio
+            </a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      Silent River Sound
+    </footer>
+
   </div>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <img src="Logo_6.png" class="hero-logo">
-    <p>Sound shaped around what matters.</p>
-    <a href="#contact" class="hero-button">Contact</a>
-  </div>
-</section>
-
-<main class="content">
-
-<section id="work">
-<h2 class="section-title">Selected Work</h2>
-<p class="section-intro">
-A selection of sound and music work across visual media, narrative projects, and music production.
-</p>
-
-<h3 class="category-title">Audio for Visual</h3>
-<div class="work-grid">
-
-<!-- CARD -->
-<article class="work-card">
-  <a href="https://youtu.be/UT3SvvJDuJg" target="_blank">
-    <img src="Tea_Story.png" class="project-image">
-  </a>
-  <div class="work-card-inner">
-    <h4 class="project-title">Tea, Memory, and Origin</h4>
-    <p class="project-type">Narrative audio</p>
-    <p class="project-description">Short description to be added.</p>
-    <a href="https://youtu.be/UT3SvvJDuJg" target="_blank" class="project-link">Watch</a>
-  </div>
-</article>
-
-<article class="work-card">
-  <a href="https://youtu.be/YxxMXexpz0c" target="_blank">
-    <img src="Motivational Ad.png" class="project-image">
-  </a>
-  <div class="work-card-inner">
-    <h4 class="project-title">Motivational Sequence</h4>
-    <p class="project-type">Sound design</p>
-    <p class="project-description">Short description to be added.</p>
-    <a href="https://youtu.be/YxxMXexpz0c" target="_blank" class="project-link">Watch</a>
-  </div>
-</article>
-
-</div>
-
-<h3 class="category-title">Music Production</h3>
-<div class="work-grid">
-
-<article class="work-card">
-  <a href="#" >
-    <img src="Anatomia_di_un_viaggio.png" class="project-image">
-  </a>
-  <div class="work-card-inner">
-    <h4 class="project-title">Anatomia di un viaggio</h4>
-    <p class="project-type">EP Production</p>
-    <p class="project-description">Short description to be added.</p>
-    <a href="#" class="project-link">Listen</a>
-  </div>
-</article>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
 </body>
 </html>
