@@ -187,14 +187,48 @@
 
     .work-card {
       min-height: 100%;
-      padding: 26px;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 22px;
       background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
     }
 
-    .work-card.featured-card {
+    .work-card-inner {
+      padding: 26px;
+    }
+
+    .featured-card .work-card-inner {
       padding: 30px;
+    }
+
+    .project-image-link {
+      display: block;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      opacity: 0.88;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .project-image-link:hover .project-image {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    .project-image-link.placeholder {
+      cursor: default;
+    }
+
+    .project-image-link.placeholder:hover .project-image {
+      opacity: 0.88;
+      transform: none;
     }
 
     .project-title {
@@ -234,6 +268,15 @@
     .project-link {
       padding: 9px 15px;
       font-size: 0.78rem;
+    }
+
+    .project-link.placeholder {
+      cursor: default;
+    }
+
+    .project-link.placeholder:hover {
+      background: transparent;
+      color: var(--button);
     }
 
     .work-cta {
@@ -367,8 +410,12 @@
       }
 
       .work-card {
-        padding: 22px;
         border-radius: 18px;
+      }
+
+      .work-card-inner,
+      .featured-card .work-card-inner {
+        padding: 22px;
       }
 
       .work-cta {
@@ -415,35 +462,55 @@
           <h3 class="category-title">Featured Work</h3>
 
           <div class="work-grid featured">
+
             <article class="work-card featured-card">
-              <h4 class="project-title">Narrative Interview</h4>
-              <p class="project-type">Narrative audio production / voice-driven content</p>
-              <p class="project-description">
-                Audio production for a long-form storytelling piece, focused on voice clarity, pacing, and emotional balance.
-                Original music was composed and integrated to support the narrative without competing with speech.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Audio producer, recording engineer, editor, mixer, music composer
-              </p>
-              <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-link" target="_blank" rel="noopener">
-                View project
+              <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-image-link" target="_blank" rel="noopener">
+                <img src="images/narrative-interview.jpg" alt="Narrative Interview project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Narrative Interview</h4>
+                <p class="project-type">Narrative audio production / voice-driven content</p>
+
+                <p class="project-description">
+                  Audio production for a long-form storytelling piece, focused on voice clarity, pacing, and emotional balance.
+                  Original music was composed and integrated to support the narrative without competing with speech.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Audio producer, recording engineer, editor, mixer, music composer
+                </p>
+
+                <a href="https://www.youtube.com/watch?v=u95GMDw4-pw" class="project-link" target="_blank" rel="noopener">
+                  View project
+                </a>
+              </div>
             </article>
 
             <article class="work-card featured-card">
-              <h4 class="project-title">EP Production — Independent Artist</h4>
-              <p class="project-type">Music production / recording / mixing</p>
-              <p class="project-description">
-                Production and mixing of a four-track EP, developed through mobile recording sessions across non-studio environments.
-                The work included arrangement support, recording, editing, and mix cohesion across the full release.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Producer, recording engineer, editor, mixing engineer
-              </p>
-              <a href="#contact" class="project-link">
-                Private preview
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/ep-production.jpg" alt="EP Production project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">EP Production — Independent Artist</h4>
+                <p class="project-type">Music production / recording / mixing</p>
+
+                <p class="project-description">
+                  Production and mixing of a four-track EP, developed through mobile recording sessions across non-studio environments.
+                  The work included arrangement support, recording, editing, and mix cohesion across the full release.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Producer, recording engineer, editor, mixing engineer
+                </p>
+
+                <a href="#" class="project-link placeholder" onclick="return false;">
+                  Private preview
+                </a>
+              </div>
             </article>
+
           </div>
         </div>
 
@@ -451,35 +518,55 @@
           <h3 class="category-title">Narrative & Audio for Picture</h3>
 
           <div class="work-grid">
+
             <article class="work-card">
-              <h4 class="project-title">Narrative Audio Design — Motivational Sequence</h4>
-              <p class="project-type">Voice-driven audiovisual piece</p>
-              <p class="project-description">
-                Audio design for a conceptual advertising-style sequence built around voice-over, music, and sound effects.
-                The audio was structured to support narrative progression, transitions, pacing, and intelligibility.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Audio producer, sound designer, editor, video editor
-              </p>
-              <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-link" target="_blank" rel="noopener">
-                Watch
+              <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-image-link" target="_blank" rel="noopener">
+                <img src="images/motivational-sequence.jpg" alt="Motivational Sequence project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Narrative Audio Design — Motivational Sequence</h4>
+                <p class="project-type">Voice-driven audiovisual piece</p>
+
+                <p class="project-description">
+                  Audio design for a conceptual advertising-style sequence built around voice-over, music, and sound effects.
+                  The audio was structured to support narrative progression, transitions, pacing, and intelligibility.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Audio producer, sound designer, editor, video editor
+                </p>
+
+                <a href="https://www.youtube.com/watch?v=7SIFfTKSosQ" class="project-link" target="_blank" rel="noopener">
+                  Watch
+                </a>
+              </div>
             </article>
 
             <article class="work-card">
-              <h4 class="project-title">Audio Design for Visual Sequence</h4>
-              <p class="project-type">Music and sound design for visual content</p>
-              <p class="project-description">
-                Music and sound effects designed to follow visual transitions, shifts in energy, and key moments across the sequence.
-                The project focused on timing, atmosphere, and integration between sound and image.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Composer, sound designer, editor
-              </p>
-              <a href="#contact" class="project-link">
-                Private preview
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/visual-sequence.jpg" alt="Audio Design for Visual Sequence project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Audio Design for Visual Sequence</h4>
+                <p class="project-type">Music and sound design for visual content</p>
+
+                <p class="project-description">
+                  Music and sound effects designed to follow visual transitions, shifts in energy, and key moments across the sequence.
+                  The project focused on timing, atmosphere, and integration between sound and image.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Composer, sound designer, editor
+                </p>
+
+                <a href="#" class="project-link placeholder" onclick="return false;">
+                  Private preview
+                </a>
+              </div>
             </article>
+
           </div>
         </div>
 
@@ -487,35 +574,55 @@
           <h3 class="category-title">Music & Production</h3>
 
           <div class="work-grid">
+
             <article class="work-card">
-              <h4 class="project-title">Electronic Record Label Releases</h4>
-              <p class="project-type">Mixing & mastering for DJ-focused platforms</p>
-              <p class="project-description">
-                Mixing and mastering work for over 50 electronic music releases, prepared for club playback, digital distribution,
-                and consistent translation across listening environments.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Mixing and mastering engineer
-              </p>
-              <a href="#contact" class="project-link">
-                Selected releases
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/electronic-releases.jpg" alt="Electronic Record Label Releases project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Electronic Record Label Releases</h4>
+                <p class="project-type">Mixing & mastering for DJ-focused platforms</p>
+
+                <p class="project-description">
+                  Mixing and mastering work for over 50 electronic music releases, prepared for club playback, digital distribution,
+                  and consistent translation across listening environments.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Mixing and mastering engineer
+                </p>
+
+                <a href="#" class="project-link placeholder" onclick="return false;">
+                  Selected releases
+                </a>
+              </div>
             </article>
 
             <article class="work-card">
-              <h4 class="project-title">Independent Music & Video Production</h4>
-              <p class="project-type">Self-directed music and audiovisual production</p>
-              <p class="project-description">
-                A self-directed music and video project developed from composition to release. The work included songwriting,
-                arrangement, performance, production direction, collaboration with musicians, and audiovisual editing.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Producer, composer, arranger, performer, video producer/director
-              </p>
-              <a href="#contact" class="project-link">
-                Watch video
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/independent-music-video.jpg" alt="Independent Music and Video Production project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Independent Music & Video Production</h4>
+                <p class="project-type">Self-directed music and audiovisual production</p>
+
+                <p class="project-description">
+                  A self-directed music and video project developed from composition to release. The work included songwriting,
+                  arrangement, performance, production direction, collaboration with musicians, and audiovisual editing.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Producer, composer, arranger, performer, video producer/director
+                </p>
+
+                <a href="#" class="project-link placeholder" onclick="return false;">
+                  Watch video
+                </a>
+              </div>
             </article>
+
           </div>
         </div>
 
@@ -523,20 +630,31 @@
           <h3 class="category-title">Long-Form & Structured Audio Projects</h3>
 
           <div class="work-grid">
+
             <article class="work-card">
-              <h4 class="project-title">Educational Video Course — Pastry</h4>
-              <p class="project-type">Audio production & music identity</p>
-              <p class="project-description">
-                Audio production and music identity for a structured educational video course with 40+ lessons across six thematic chapters.
-                The work focuses on dialogue clarity, original music themes, pacing, and long-form consistency.
-              </p>
-              <p class="project-role">
-                <strong>Role:</strong> Audio producer, music composer, editor
-              </p>
-              <a href="#contact" class="project-link">
-                View sample lesson
+              <a href="#" class="project-image-link placeholder" onclick="return false;">
+                <img src="images/educational-video-course.jpg" alt="Educational Video Course project preview" class="project-image" />
               </a>
+
+              <div class="work-card-inner">
+                <h4 class="project-title">Educational Video Course — Pastry</h4>
+                <p class="project-type">Audio production & music identity</p>
+
+                <p class="project-description">
+                  Audio production and music identity for a structured educational video course with 40+ lessons across six thematic chapters.
+                  The work focuses on dialogue clarity, original music themes, pacing, and long-form consistency.
+                </p>
+
+                <p class="project-role">
+                  <strong>Role:</strong> Audio producer, music composer, editor
+                </p>
+
+                <a href="#" class="project-link placeholder" onclick="return false;">
+                  View sample lesson
+                </a>
+              </div>
             </article>
+
           </div>
         </div>
 
