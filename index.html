@@ -101,18 +101,44 @@
     .nav-menu a:hover { color: var(--text); }
 
     .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 24px 20px;
-      text-align: center;
-    }
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  overflow: hidden;
+  text-align: center;
+}
 
-    .hero-inner {
-      margin-top: 4px;
-      max-width: 900px;
-      width: 100%;
-    }
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.75;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,5,0.7),
+    rgba(5,5,5,0.85)
+  );
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 24px;
+}
 
     .hero-logo {
       width: min(360px, 70vw);
@@ -576,17 +602,22 @@
         </nav>
       </div>
     </header>
+<section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline preload="none">
+    <source src="hero-video.m4v" type="video/mp4">
+  </video>
 
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <img src="Logo_6.png" alt="Silent River Sound logo" class="hero-logo" />
-        <p>
-          Sound shaped around what matters.<br>
-          Audio production, composition, and recording — tailored to each project.
-        </p>
-        <a href="#contact" class="hero-button">Contact</a>
-      </div>
-    </section>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <img src="Logo_6.png" alt="Silent River Sound logo" class="hero-logo" />
+    <p>
+      Sound shaped around what matters.<br>
+      Audio production, composition, and recording — tailored to each project.
+    </p>
+    <a href="#contact" class="hero-button">Contact</a>
+  </div>
+</section>
 
     <main class="content">
 
